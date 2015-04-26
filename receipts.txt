@@ -1,0 +1,12 @@
+-- Table Number: 2 
+ --- 1 
+Pot Roast with mashed potatoes --- $15.0
+The "Irish" Pub Burger special --- $10.0
+Bangers & Mash --- $12.0
+Bangers & Mash --- $12.0
+Bangers & Mash --- $12.0
+Bangers & Mash --- $12.0
+Bangers & Mash --- $12.0
+Bangers & Mash --- $12.0
+------ Your total for today is: $97
+--- Thanks for dining with us today ---
