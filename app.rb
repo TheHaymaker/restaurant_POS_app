@@ -12,6 +12,7 @@ ActiveRecord::Base.establish_connection(
 # ** models? **
 require './models/food'
 require './models/party'
+require './models/order'
 
 
 # ** Helper functions? **
