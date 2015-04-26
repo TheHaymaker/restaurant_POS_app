@@ -26,7 +26,7 @@ end
 
 # all food items available
 get '/api/foods' do 
-	content_type :to_json
+	content_type :json
 	Food.all.to_json
 end
 
@@ -68,17 +68,51 @@ delete '/api/foods/:id' do
 	food.delete
 	{message: "Food successfully deleted"}.to_json
 end
+
 # all the parties
+get '/api/parties' do 
+	content_type :json
+	Party.all.to_json
+end
 
 # a single party and all the orders it contains
+get '/api/parties/:id' do 
+	content_type :json
+	party = Party.find(params[:id].to_i)
+	partyOrders = party.orders
+	partyOrders.to_json
+end
 
 # create a new party
+post '/api/parties' do
+	content_type :json
+	party = Party.create(params[:party])
+	party.to_json
+end
 
 # update a partys details (put)
 
+put '/api/parties/:id' do 
+	content_type :json
+	updated_party = Party.find(params[:id].to_i)
+	result = updated_party.update(params[:party])
+	result.to_json
+end
 # update a partys details (patch)
+patch '/api/parties/:id' do 
+	content_type :json
+	updated_party = Party.find(params[:id].to_i)
+	result = updated_party.update(params[:party])
+	result.to_json
+end
 
 # delete a party
+delete '/api/parties/:id' do 
+	content_type :json
+	party = Party.find(params[:id].to_i)
+	party.delete
+	{message: "Party successfully deleted"}.to_json
+end
 
 # create a new order
 
