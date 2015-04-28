@@ -84,6 +84,7 @@ end
 get '/api/parties/:id' do 
 	content_type :json
 	party = Party.find(params[:id].to_i)
+	party.to_json
 	partyOrders = party.orders
 	partyOrders.to_json
 end
@@ -91,7 +92,7 @@ end
 # create a new party
 post '/api/parties' do
 	content_type :json
-	party = sParty.create(params[:party])
+	party = Party.create(params[:party])
 	party.to_json
 end
 
@@ -137,7 +138,7 @@ patch '/api/orders/:id' do
 	order = Order.find(params[:id].to_i)
 	foodChoice = order["food_id"]
 	food = Food.find(foodChoice.to_i)
-	food["price"] = 0.00
+	food.price = 0
 	food.to_json
 
 end
@@ -154,31 +155,42 @@ end
 get '/api/parties/:id/receipt' do 
 	content_type :json
 	 party = Party.find(params[:id].to_i)
-	start = "-- Table Number: #{party['table_number']} \n --- #{party['num_of_guests']} \n"
-	conclusion = "--- Thanks for dining with us today ---\n"
+	start = "++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
+	start << "-- Table Number: #{party['table_number']} \n --- # of Guests: #{party['num_of_guests']} \n"
+	start << "Ordered Items:\n"
+	conclusion = "--- We hope you enjoyed your meal! ---\n\n\n===========================================\n===========================================\n\n"
 	orders = party.orders
 	total = 0
-		orders.each do |x,|
+		orders.each do |x|
 			food = Food.find(x["food_id"].to_i)
-			total += food['price'].to_i
-			content = "#{food["name"]} --- $#{food["price"]}\n"
+			total += food.price
+			content = "#{food["name"]} --- $#{food.price}\n"
 			start << content
 		end
+
+		tip15 = '%.2f' % [((total * 0.15) * 100).round / 100.0]
+		tip20 = '%.2f' % [((total * 0.20) * 100).round / 100.0]
+		tip25 = '%.2f' % [((total * 0.25) * 100).round / 100.0]
+
 		start << "------ Your total for today is: $#{total}\n"
+		start << "--------- Suggested Tip Amount ---------\n"
+		start << "15% = $#{tip15} - 20% = $#{tip20} - 25% = $#{tip25}\n\n"
+		start << "Tip Amount: _____________ \n\n"
+		start << "Total: ___________________\n\n"
+		start << "Signature: ____________________________\n\n"
+		start << " - - - C U S T O M E R  C O P Y - - - \n\n"
 		start << conclusion
-		results = File.write('./receipts.txt', start)
-		start
-
-	# where("party_id", params[:id].to_i)
-	# File.write('./receipts.txt', receipt_data.to_json)
-
+		results = File.write('./receipt_print.txt', start)
+		File.open("receipts.txt", "a+"){|f| f << start }
+		{receipt: start}.to_json
 end
 
 # marks the party as paid (put)
 put '/api/parties/:id/checkout' do
 	content_type :json
 	party = Party.find(params[:id].to_i)
-	party.update(params[:party])
+	party['pay_yet'] = TRUE
+	party.save()
 	party.to_json
 
 
@@ -187,10 +199,9 @@ end
 patch '/api/parties/:id/checkout' do
 	content_type :json
 	party = Party.find(params[:id].to_i)
-	party.update(params[:party])
+	party['pay_yet'] = TRUE
+	party.save()
 	party.to_json
-
-
 end
 
 

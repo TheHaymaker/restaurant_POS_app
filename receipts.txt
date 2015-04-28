@@ -1,12 +1,79 @@
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-- Table Number: 1 
+ --- # of Guests: 4 
+The Elvis Burger --- $12
+Pasta Salad --- $8
+French Fries --- $6
+Pasta Salad --- $8
+------ Your total for today is: $34
+--------- Suggested Tip Amount ---------
+15% = $5.10 - 20% = $6.80 - 25% = $8.50
+
+Tip Amount: _____________ 
+
+Total: ___________________
+
+Signature: ____________________________
+
+ - - - C U S T O M E R  C O P Y - - - 
+
+--- We hope you enjoyed your meal! ---
+
+
+===========================================
+===========================================
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 -- Table Number: 2 
- --- 1 
-Pot Roast with mashed potatoes --- $15.0
-The "Irish" Pub Burger special --- $10.0
-Bangers & Mash --- $12.0
-Bangers & Mash --- $12.0
-Bangers & Mash --- $12.0
-Bangers & Mash --- $12.0
-Bangers & Mash --- $12.0
-Bangers & Mash --- $12.0
------- Your total for today is: $97
---- Thanks for dining with us today ---
+ --- # of Guests: 2 
+Fountain Soda --- $1
+The Pub Burger --- $10
+Yellow Curry --- $8
+Pasta Salad --- $8
+------ Your total for today is: $27
+--------- Suggested Tip Amount ---------
+15% = $4.05 - 20% = $5.40 - 25% = $6.75
+
+Tip Amount: _____________ 
+
+Total: ___________________
+
+Signature: ____________________________
+
+ - - - C U S T O M E R  C O P Y - - - 
+
+--- We hope you enjoyed your meal! ---
+
+
+===========================================
+===========================================
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+-- Table Number: 3 
+ --- # of Guests: 5 
+Pot Roast --- $15
+Pad Thai --- $7
+Green Curry --- $8
+------ Your total for today is: $30
+--------- Suggested Tip Amount ---------
+15% = $4.50 - 20% = $6.00 - 25% = $7.50
+
+Tip Amount: _____________ 
+
+Total: ___________________
+
+Signature: ____________________________
+
+ - - - C U S T O M E R  C O P Y - - - 
+
+--- We hope you enjoyed your meal! ---
+
+
+===========================================
+===========================================
+
