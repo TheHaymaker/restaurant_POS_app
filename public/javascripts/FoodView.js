@@ -1,4 +1,5 @@
-var app = app || {};
+
+	var app = app || {};
 
 app.FoodModel = Backbone.Model.extend({});
 
@@ -8,9 +9,9 @@ app.FoodCollection = Backbone.Collection.extend({
 });
 
 app.FoodView = Backbone.View.extend({
-	tagName: 'ul',
+	tagName: 'option',
 	className: 'single-food',
-	template: _.template($(.food-display).html()),
+	template: _.template($('.food-display').html()),
 	render: function(){
 		var data = this.model.attributes;
 		this.$el.html( this.template( data ) );
@@ -19,6 +20,9 @@ app.FoodView = Backbone.View.extend({
 });
 
 app.FoodListView = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.collection, 'sync', this.render)
+	},
 	render: function() {
 		var foods = this.collection.models;
 		for (var i = 0; i < foods.length; i++) {
@@ -39,21 +43,6 @@ $(document).ready(function(){
 		el: $('#food-wrapper')
 	})
 
+	app.foods.fetch()
+
 });
-
-
-// Party Model
-
-// Party View
-
-// Party Collection
-
-
-// Party List View
-
-
-
-
-
-
-

@@ -1,4 +1,3 @@
-
 	var app = app || {};
 
 app.PartyModel = Backbone.Model.extend({});
@@ -9,9 +8,9 @@ app.PartyCollection = Backbone.Collection.extend({
 });
 
 app.PartyView = Backbone.View.extend({
-	tagName: 'ul',
+	tagName: 'option',
 	className: 'single-party',
-	template: _.template($('.food-display').html()),
+	template: _.template($('.party-display').html()),
 	render: function(){
 		var data = this.model.attributes;
 		this.$el.html( this.template( data ) );
@@ -26,8 +25,8 @@ app.PartyListView = Backbone.View.extend({
 	render: function() {
 		var parties = this.collection.models;
 		for (var i = 0; i < parties.length; i++) {
-			var singleparty = parties[i];
-			var singlePartyView = new app.PartyView({model: singleParty);
+			var singleParty = parties[i];
+			var singlePartyView = new app.PartyView({model: singleParty});
 			singlePartyView.render();
 			this.$el.append(singlePartyView.$el);
 		};
