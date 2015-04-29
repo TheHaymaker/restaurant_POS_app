@@ -6,7 +6,7 @@ class FoodsController < Sinatra::Base
 		return params[:food] if params[:food]
 		body_data = {}
 		@request_body || request.body.read.to_s
-		body_data = (JSON@(request_body)) unless @request_body.empty?
+		body_data = (JSON(@request_body)) unless @request_body.empty?
 		body_data = body_data['food'] || body_data
 	end
 
@@ -45,7 +45,7 @@ class FoodsController < Sinatra::Base
 	end
 
 	# update a food item (patch)
-	patch '/api/foods/:id' do 
+	patch '/:id' do 
 		authenticate!
 		content_type :json
 		updated_food = Food.find(params[:id].to_i)

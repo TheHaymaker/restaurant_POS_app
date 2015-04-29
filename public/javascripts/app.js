@@ -11,6 +11,14 @@ $(document).ready(function(){
 	});
 
 
+function updateAll() {
+		app.foods.fetch();
+		app.parties.fetch();
+	};
+
+	updateAll();
+
+
 
 	app.foodListPainter = new app.GeneralListView({
 		collection: app.foods,
@@ -26,13 +34,7 @@ $(document).ready(function(){
 	});
 
 
-	function UpdateAll() {
-		app.foods.fetch();
-		app.parties.fetch();
-	};
-
-	UpdateAll();
-
+	
 
 
 $("#create-order").on("click", function(evt){
@@ -43,20 +45,14 @@ $("#create-order").on("click", function(evt){
 
 			$.ajax({
 				method: 'post',
-				url: '/api/orders'
-				data: {order: {party_id: partyID, food_id: foodID},
+				url: '/api/orders',
+				data: {order: {party_id: partyID, food_id: foodID}},
 				success: function() {
-					UpdateAll();
+					updateAll();
 
 					$('.food-selected').removeClass('food-selected');
 					$('.party-selected').removeClass('party-selected');
-				}
-
-			});
+				} //success function
+			});  // ajax call
 		});
-
-
-
-
-
 });

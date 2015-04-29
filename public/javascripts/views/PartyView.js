@@ -31,7 +31,7 @@ app.PartyView = Backbone.View.extend({
 	},
 	selectParty: function() {
 		$('.party-selected').removeClass('party-selected');
-		this.$el.addClass('.party-selected');
+		this.$el.addClass('party-selected');
 		app.partySelection = this.model;
 	}
 

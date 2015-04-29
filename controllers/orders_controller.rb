@@ -5,7 +5,7 @@ class OrdersController < Sinatra::Base
 		return params[:order] if params[:order]
 		body_data = {}
 		@request_body || request.body.read.to_s
-		body_data = (JSON@(request_body)) unless @request_body.empty?
+		body_data = (JSON(@request_body)) unless @request_body.empty?
 		body_data = body_data['food'] || body_data
 	end
 

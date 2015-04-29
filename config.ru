@@ -1,4 +1,4 @@
-require 'bundler'
+require 'bundler/setup'
 Bundler.require()
 
 
@@ -10,7 +10,7 @@ ActiveRecord::Base.establish_connection(
 	)
 
 # ** helper functions **
-require './helpers/sesssion_helpers'
+require './helpers/session_helpers'
 
 # ** models? **
 require './models/food'
