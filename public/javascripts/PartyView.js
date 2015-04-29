@@ -1,13 +1,6 @@
 	var app = app || {};
 
 //=============================================
-//           P A R T Y   M O D E L
-// =============================================	
-
-app.PartyModel = Backbone.Model.extend({});
-
-
-//=============================================
 //           P A R T Y   V I E W
 // =============================================
 
@@ -41,49 +34,5 @@ app.PartyView = Backbone.View.extend({
 		this.$el.addClass('.party-selected');
 		app.partySelection = this.model;
 	}
-
-});
-
-
-
-//=============================================
-//      P A R T Y    C O L L E C T I O N
-// =============================================
-
-app.PartyCollection = Backbone.Collection.extend({
-	model: app.PartyModel,
-	url: '/api/parties'
-});
-
-
-//=============================================
-//        P A R T Y   L I S T   V I E W
-// =============================================
-
-app.PartyListView = Backbone.View.extend({
-	initialize: function(){
-		this.listenTo(this.collection, 'sync', this.render)
-	},
-	render: function() {
-		var parties = this.collection.models;
-		for (var i = 0; i < parties.length; i++) {
-			var singleParty = parties[i];
-			var singlePartyView = new app.PartyView({model: singleParty});
-			singlePartyView.render();
-			this.$el.append(singlePartyView.$el);
-		};
-	}
-});
-
-
-$(document).ready(function(){
-
-	app.parties = new app.PartyCollection();
-	app.partyListPainter = new app.PartyListView({
-		collection: app.parties,
-		el: $('#party-wrapper')
-	})
-
-	app.parties.fetch()
 
 });

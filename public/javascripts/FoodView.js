@@ -1,48 +1,31 @@
 
 	var app = app || {};
 
-app.FoodModel = Backbone.Model.extend({});
-
-app.FoodCollection = Backbone.Collection.extend({
-	model: app.FoodModel,
-	url: '/api/foods'
-});
+// =============================================
+//           F O O D   V I E W 
+// =============================================
 
 app.FoodView = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.model, 'change', this.render);
+		this.listenTo(this.model, 'delete', this.remove);
+	},
 	tagName: 'li',
 	className: 'single-food',
 	template: _.template($('.food-display').html()),
 	render: function(){
 		var data = this.model.attributes;
-		this.$el.html( this.template( data ) );
-	}
-
-});
-
-app.FoodListView = Backbone.View.extend({
-	initialize: function(){
-		this.listenTo(this.collection, 'sync', this.render)
+		this.$el.append( this.template( data ) );
+		return this;
 	},
-	render: function() {
-		var foods = this.collection.models;
-		for (var i = 0; i < foods.length; i++) {
-			var singleFood = foods[i];
-			var singleFoodView = new app.FoodView({model: singleFood});
-			singleFoodView.render();
-			this.$el.append(singleFoodView.$el);
-		};
+	events: {
+		'click .select-food': 'selectFood'
+	},
+	selectFood: function(){
+		$('.food-selected').removeClass('food-selected');
+		this.$el.addClass('food-selected');
+		app.foodSelection = this.model;
 	}
-});
-
-
-$(document).ready(function(){
-
-	app.foods = new app.FoodCollection();
-	app.foodListPainter = new app.FoodListView({
-		collection: app.foods,
-		el: $('#food-wrapper')
-	})
-
-	app.foods.fetch()
 
 });
+

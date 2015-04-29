@@ -49,22 +49,5 @@
 <script type="text/javascript" src="/javascripts/FoodView.js"></script>
 <script type="text/javascript" src="/javascripts/PartyView.js"></script>	
 <script type="text/javascript" src="/javascripts/OrderView.js"></script>	
-<script type="text/javascript">
-
-	$(document).ready(function(){
-		$("#create-order").on("click", function(evt){
-			
-
-
-			$.ajax({
-				method: 'post',
-				url: '/api/orders'
-				data: {model: {}
-
-				}}
-			})
-		});
-	});
-</script>
 </body>
 </html>

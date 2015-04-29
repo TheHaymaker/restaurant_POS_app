@@ -32,3 +32,11 @@ body {
 	width: 100px;
 
 }
+
+.food-selected {
+	background-color: orange;
+}
+
+.party-selected {
+	background-color: red;
+}
