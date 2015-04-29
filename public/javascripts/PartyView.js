@@ -8,7 +8,7 @@ app.PartyCollection = Backbone.Collection.extend({
 });
 
 app.PartyView = Backbone.View.extend({
-	tagName: 'option',
+	tagName: 'li',
 	className: 'single-party',
 	template: _.template($('.party-display').html()),
 	render: function(){

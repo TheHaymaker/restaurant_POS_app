@@ -8,50 +8,54 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 	<script type="text/template" class="food-display">
 	
-		<option> <%%= id %> - <%%= name %> - - $<%%= cents/100 %> 
-	</option>
+		<h3>
+		<%%= name %>
+		</h3>
+		<p>
+		$<%%= cents/100 %>
+		</p>
+		 
 	</script>
 
 	<script type="text/template" class="party-display">
-		<option>ID: <%% id %>, Table #: <%%= table_number %>, # of Guests: <%%= num_of_guests %>
-	</option>
+		<h3>
+		Table #: <%%= table_number %>
+		</h3>
+		<p>
+		# of Guests: <%%= num_of_guests %>
+		</p>
 	</script>
 
-	<script type="text/template" class="order-display">
-		<h2>Order #: <%% id %>, Party ID: <%% party_id %>, Food ID: <%% food_id %> </h2> 	
-	</script>
 	
 
 </head>
 <body>
-<h1>Anong Thai Irish-American Fusion Restaurant</h1>
+<h1>The RESTaurant: Where you eat till you sleep.</h1>
 
-<form>
-<select id="party-wrapper">
+<section id="party-wrapper">
 	
-</select>
+</section>
 
-<select id="food-wrapper">
+<section id="food-wrapper">
 	
-</select>
+</section>
 <button type="submit" id="create-order">Submit Order</button>
 	
-</form>
-
-<div id="order-wrapper"></div>
 
 <script type="text/javascript" src="/javascripts/FoodView.js"></script>
 <script type="text/javascript" src="/javascripts/PartyView.js"></script>	
 <script type="text/javascript" src="/javascripts/OrderView.js"></script>	
 <script type="text/javascript">
+
 	$(document).ready(function(){
 		$("#create-order").on("click", function(evt){
-			evt.preventDefault();
+			
+
 
 			$.ajax({
 				method: 'post',
 				url: '/api/orders'
-				data: {model: {
+				data: {model: {}
 
 				}}
 			})

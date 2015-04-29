@@ -33,14 +33,7 @@ end
 #  get a single food item and all the parties that included it
 get '/api/foods/:id' do 	
 	food = Food.find(params[:id].to_i)
-	orders = food.orders
-	partyList = []
-	partyList.push(food)
-		orders.each do |x| 
-			party = Party.find(x['party_id'].to_i)
-			partyList.push(party)
-		end
-	partyList.to_json
+	food.to_json(include: :parties)
 end
 
 
@@ -77,16 +70,15 @@ end
 # all the parties
 get '/api/parties' do 
 	content_type :json
-	Party.all.to_json
+	Party.all.to_json(include: :foods)
 end
 
 # a single party and all the orders it contains
 get '/api/parties/:id' do 
 	content_type :json
 	party = Party.find(params[:id].to_i)
-	party.to_json
-	partyOrders = party.orders
-	partyOrders.to_json
+	party.to_json(include: :orders)
+	
 end
 
 # create a new party

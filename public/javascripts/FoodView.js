@@ -9,7 +9,7 @@ app.FoodCollection = Backbone.Collection.extend({
 });
 
 app.FoodView = Backbone.View.extend({
-	tagName: 'option',
+	tagName: 'li',
 	className: 'single-food',
 	template: _.template($('.food-display').html()),
 	render: function(){

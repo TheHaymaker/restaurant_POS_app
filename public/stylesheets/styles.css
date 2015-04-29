@@ -3,3 +3,32 @@ body {
 
 }
 
+#party-wrapper {
+	border: 2px solid black;
+	display: inline-block;
+	width: 46%;
+	margin: auto;
+}
+
+#food-wrapper {
+	border: 2px solid black;
+	display: inline-block;
+	width: 46%;
+	margin: auto;
+}
+
+.single-food {
+	display: inline-block;
+	border: 1px solid black;
+	margin: 10px 10px;
+	width: 100px;
+}
+
+
+.single-party {
+	display: inline-block;
+	border: 1px solid black;
+	margin: 10px 10px;
+	width: 100px;
+
+}
