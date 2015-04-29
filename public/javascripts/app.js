@@ -26,8 +26,12 @@ $(document).ready(function(){
 	});
 
 
-	app.foods.fetch();
-	app.parties.fetch();
+	function UpdateAll() {
+		app.foods.fetch();
+		app.parties.fetch();
+	};
+
+	UpdateAll();
 
 
 
@@ -42,7 +46,7 @@ $("#create-order").on("click", function(evt){
 				url: '/api/orders'
 				data: {order: {party_id: partyID, food_id: foodID},
 				success: function() {
-					app.parties.fetch({reset: true});
+					UpdateAll();
 
 					$('.food-selected').removeClass('food-selected');
 					$('.party-selected').removeClass('party-selected');
