@@ -3,9 +3,6 @@
 <head>
 	<title>RESTaurant POS application</title>
 	<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
-	<script type="text/javascript" src="/javascripts/libraries/jquery.js"></script>
-	<script type="text/javascript" src="/javascripts/libraries/underscore.js"></script>
-	<script type="text/javascript" src="/javascripts/libraries/backbone.js"></script>
 	<script type="text/template" class="food-display">
 	
 		<h3>
@@ -34,7 +31,7 @@
 
 </head>
 <body>
-<h1>The RESTaurant: Where you eat till you sleep.</h1>
+<h1>The RESTaurant</h1>
 
 <section id="party-wrapper">
 	
@@ -46,8 +43,32 @@
 <button type="submit" id="create-order">Submit Order</button>
 	
 
-<script type="text/javascript" src="/javascripts/FoodView.js"></script>
-<script type="text/javascript" src="/javascripts/PartyView.js"></script>	
-<script type="text/javascript" src="/javascripts/OrderView.js"></script>	
+
+<!-- JS Libraries -->
+<script type="text/javascript" src="/javascripts/libraries/jquery.js"></script>
+<script type="text/javascript" src="/javascripts/libraries/underscore.js"></script>
+<script type="text/javascript" src="/javascripts/libraries/backbone.js"></script>
+
+<!-- Backbone Models -->
+
+<script type="text/javascript" src="/javascripts/models/FoodModel.js"></script>
+<script type="text/javascript" src="/javascripts/models/PartyModel.js"></script>
+	
+
+<!-- Backbone Collection -->
+
+<script type="text/javascript" src="/javascripts/collections/FoodCollection.js"></script>
+<script type="text/javascript" src="/javascripts/collections/PartyCollection.js"></script>
+	
+
+<!-- Backbone Views -->
+<script type="text/javascript" src="/javascripts/views/FoodView.js"></script>
+<script type="text/javascript" src="/javascripts/views/PartyView.js"></script>	
+<script type="text/javascript" src="/javascripts/views/GeneralListView.js"></script>	
+
+<!-- JS Application -->
+
+<script type="text/javascript" src="/javascripts/app.js"></script>	
+
 </body>
 </html>
