@@ -9,6 +9,7 @@ ActiveRecord::Base.establish_connection(
 	:host => 'localhost'
 	)
 
+
 # ** helper functions **
 require './helpers/session_helpers'
 
