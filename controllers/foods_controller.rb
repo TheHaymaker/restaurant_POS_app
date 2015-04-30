@@ -6,6 +6,7 @@ class FoodsController < Sinatra::Base
 		return params[:food] if params[:food]
 		body_data = {}
 		@request_body || request.body.read.to_s
+		puts @request_body
 		body_data = (JSON(@request_body)) unless @request_body.empty?
 		body_data = body_data['food'] || body_data
 	end
@@ -32,7 +33,7 @@ class FoodsController < Sinatra::Base
 	post '/' do
 		authenticate! 
 		content_type :json
-		Food.create(food_params).to_json
+		Food.create(params).to_json
 	end
 
 	# Update a food item (put)

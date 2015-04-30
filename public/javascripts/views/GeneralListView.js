@@ -10,7 +10,6 @@ app.GeneralListView = Backbone.View.extend({
 		this.$el.empty();
 		var models = this.collection.models;
 		for (var i = 0; i < models.length; i++) {
-			console.log(models[i]);
 			var subView = new this.modelView( {model: models[i]} );
 			subView.render();
 			this.$el.append(subView.$el);

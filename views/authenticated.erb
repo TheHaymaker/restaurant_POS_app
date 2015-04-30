@@ -2,10 +2,30 @@
   <head>
     <title>RESTaurant</title>
     <link rel="stylesheet" href="/stylesheets/styles.css">
+  
+    <script type="text/template" class="food-display">
+        <h3>
+        <%%= name %>
+        </h3>
+        <p>
+        $<%%= cents/100 %>
+        </p>
+    </script>
+
   </head>
   <body>
 
-    <h2>Greetings Manager</h2>
+    <h2>Manage Foods</h2>
+    <form>
+      <input type="text" id="name" name="name" placeholder="Food name..." />
+      <input type="text" id="cents" name="cents" placeholder="Price in cents..." />
+      <input type="text" id="cuisine" name="cuisine_type" placeholder="Cuisine Type..." />
+      <input type="text" id="allergens" name="allergens" placeholder="Allergens?" />
+      <input type="hidden" id="id" name="id" />
+       <button type="submit" id="submit-food">Submit</button>
+    </form>
+    <section class="menu">
+    </section>
 
     <form action="/sessions" method='post'>
       <input type="hidden" name='_method' value='delete'>
@@ -14,15 +34,18 @@
 
 
     <!-- ****** JS Libraries ****** -->
-    <script src='/javascripts/lib/jquery.js'></script>
-    <script src='/javascripts/lib/underscore.js'></script>
-    <script src='/javascripts/lib/backbone.js'></script>
+    <script src='/javascripts/libraries/jquery.js'></script>
+    <script src='/javascripts/libraries/underscore.js'></script>
+    <script src='/javascripts/libraries/backbone.js'></script>
 
     <!-- ****** Backbone Models ****** -->
     <script src='/javascripts/models/FoodModel.js'></script>
 
     <!-- ****** Backbone Collection ****** -->
     <script src='/javascripts/collections/FoodCollection.js'></script>
+
+    <script type="text/javascript" src="/javascripts/views/FoodView.js"></script> 
+    <script type="text/javascript" src="/javascripts/views/GeneralListView.js"></script>
 
     <!-- ****** Application ****** -->
     <script src='/javascripts/adminApp.js'></script>

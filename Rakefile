@@ -14,7 +14,8 @@ require './models/user'
 
 
 namespace :db do 
-	desc "create admin user" do 
+	desc "create admin user" 
+	task :create_user do 
 		user = User.new({username: "admin"})
 		user.password= "admin"
 		user.save!
